@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Rubel Hossain Portfolio"
+description = "A bilingual English and Japanese personal portfolio for Rubel Hossain, presenting his web design and front-end development work to recruiters and companies in Japan and internationally."
+version = "1.0.0"
+id = "artifacts/rubel-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22602
+
+[services.development]
+run = "pnpm --filter @workspace/rubel-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/rubel-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/rubel-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22602"
+BASE_PATH = "/"
