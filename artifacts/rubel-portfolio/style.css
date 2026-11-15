@@ -55,17 +55,10 @@ button{color:inherit}
 .text-link span{color:var(--blue)}
 .placeholder-link{border:0;background:none;padding:0;cursor:not-allowed;color:#79869b}
 .hero-art{height:480px;position:relative;display:flex;align-items:center;justify-content:center;margin-left:15px}
-.portrait-frame{width:min(370px,75%);height:430px;position:relative;overflow:hidden;background:#dce9f8;border-radius:180px 180px 10px 10px;box-shadow:0 24px 70px rgba(23,37,84,.13);z-index:1}
-.portrait-sky{position:absolute;inset:0 0 39%;background:#d9e9fc;overflow:hidden}
-.sun-disc{position:absolute;width:120px;height:120px;border-radius:50%;background:#f8fafc;right:18%;top:17%;opacity:.82}
-.sky-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.1) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(180deg,black,transparent)}
-.portrait-shape{position:absolute;inset:16% 0 0;display:flex;align-items:center;flex-direction:column}
-.head-shape{width:130px;height:150px;margin-top:76px;background:#172554;border-radius:48% 48% 42% 42%;position:relative;z-index:2}
-.head-shape:before{content:"";position:absolute;width:136px;height:69px;top:-12px;left:-3px;border-radius:58% 56% 28% 20%;background:#0f1d43;transform:rotate(-8deg)}
-.body-shape{position:absolute;bottom:-21px;width:280px;height:180px;background:#2563eb;border-radius:48% 48% 0 0}
-.body-shape:before{content:"";position:absolute;width:100%;height:100%;top:0;left:0;background:linear-gradient(110deg,transparent 48%,rgba(255,255,255,.1) 49%,transparent 50%)}
-.portrait-label{position:absolute;z-index:3;left:20px;bottom:19px;display:flex;align-items:center;gap:9px;color:var(--navy);font-size:8px;line-height:1.4;font-weight:700;letter-spacing:.1em}
-.label-dot{height:7px;width:7px;border-radius:50%;background:var(--blue)}
+.portrait-frame{width:min(370px,75%);aspect-ratio:1;position:relative;overflow:hidden;background:#dce9f8;border:8px solid rgba(255,255,255,.96);outline:1px solid rgba(37,99,235,.18);outline-offset:3px;border-radius:50%;box-shadow:0 24px 70px rgba(23,37,84,.18);z-index:1;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.profile-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 25%;border-radius:50%;transition:transform .65s var(--ease)}
+.portrait-frame:hover{transform:translateY(-6px) rotate(1deg);box-shadow:0 34px 82px rgba(23,37,84,.24)}
+.portrait-frame:hover .profile-photo{transform:scale(1.045)}
 .art-orbit{position:absolute;border:1px solid rgba(37,99,235,.2);border-radius:50%;z-index:0}
 .orbit-one{width:440px;height:440px;transform:rotate(-21deg) scaleY(.66)}
 .orbit-two{width:510px;height:510px;transform:rotate(18deg) scaleY(.6)}
@@ -230,7 +223,7 @@ button{color:inherit}
 @media(max-width:950px){
  .primary-nav{gap:17px}.nav-link{font-size:11px}
  .hero{min-height:630px;grid-template-columns:1.05fr .95fr}.hero-title{font-size:clamp(49px,7vw,70px)}
- .hero-art{height:420px}.portrait-frame{height:370px;width:76%}.head-shape{margin-top:53px}
+ .hero-art{height:420px}.portrait-frame{width:76%;max-width:370px}
  .about-content{grid-template-columns:1fr;gap:25px}.about-copy{max-width:700px}.about-facts{max-width:800px}
  .project-large{gap:25px}.project-large .project-visual{height:310px}.shop-copy{font-size:34px}
  .education-layout{gap:6%}.education-jp{grid-column:1/-1}
@@ -253,9 +246,7 @@ button{color:inherit}
  .hero-actions{gap:9px;flex-wrap:wrap}.button{min-height:47px;padding:0 14px;gap:15px}
  .hero-links{margin-top:25px;flex-wrap:wrap;gap:14px}
  .hero-art{height:385px;margin:37px 0 0}
- .portrait-frame{height:355px;width:min(300px,75%)}
- .head-shape{width:112px;height:129px;margin-top:61px}.head-shape:before{width:118px;height:60px}
- .body-shape{width:240px;height:160px}
+ .portrait-frame{width:min(300px,75%)}
  .orbit-one{width:340px;height:340px}.orbit-two{width:390px;height:390px}
  .art-stamp{right:4%;top:12px;width:68px;height:68px;font-size:8px}
  .art-coordinate{left:1%;bottom:5px}.art-caption{right:2%;bottom:5px}
@@ -302,11 +293,12 @@ button{color:inherit}
 @media(max-width:380px){
  .section-wrap,.nav-shell,.intro-inner{width:calc(100% - 32px)}
  .hero-title{font-size:47px}.hero-actions .button{font-size:11px;gap:10px;padding:0 11px}
- .hero-art{height:345px}.portrait-frame{height:320px}
+ .hero-art{height:345px}
  .contact-methods{flex-direction:column;gap:16px}
  .project-actions{flex-direction:column;align-items:flex-start}
 }
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
  .reveal{opacity:1;transform:none}
+ .portrait-frame:hover,.portrait-frame:hover .profile-photo{transform:none}
 }

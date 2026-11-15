@@ -17,7 +17,7 @@ Create a production build with `pnpm --filter @workspace/rubel-portfolio run bui
 
 Replace the clearly labeled editable placeholders in `index.html`:
 
-- The illustrated profile-photo placeholder in the hero with Rubel’s approved portrait.
+- Replace `images/rubel.jpg` with the approved profile photo, keeping the same file name and path.
 - Project artwork with actual screenshots or approved project images.
 - Each disabled project demo and GitHub control with its real destination URL.
 - The disabled GitHub profile controls and email placeholders with verified contact details.
